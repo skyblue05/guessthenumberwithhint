@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to right, rgba(255, 0, 0, 0.824), rgba(128, 0, 128, 0.633), rgba(0, 0, 255, 0.669));
+
+}
+
+.container {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    /* width: 100px; */
+    margin-top: 100px;
+    /* height: 100vh; */
+    /* border: 2px solid red; */
+}
+
+.userInput {
+    width: 600px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.662);
+    gap: 21px;
+    padding: 0px 21px;
+}
+
+.userInput:hover{
+    border: 2px solid rgb(229, 255, 0);
+
+}
+
+.userInput input {
+    margin-top: 7px;
+    outline: none;
+    padding: 11px;
+    text-align: center;
+    border-radius: 11px;
+    font-weight: bolder;
+}
+
+
+button {
+    cursor: pointer;
+    padding: 11px;
+    border-radius: 7px;
+    border: none;
+    background-color: rgb(255, 56, 56);
+    color: white;
+    box-shadow: 1px 2px 5px black;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    transition: all 0.5s ease;
+}
+
+button:active {
+    box-shadow: none;
+
+}
+
+/* very small phones */
+@media screen and (max-width:400px) {
+   
+    .userInput{
+        width: 50px;
+    }
+
+}
+
+
+/* small phones */
+@media screen and (max-width:600px) {
+   
+    .userInput{
+        width: 400px;
+    }
+
+}
+
+/* for large phones */
+
+@media screen and (min-width: 600px)and (max-width:900px) {
+    
+
+    .userInput{
+        width: 500px;
+    }
+}

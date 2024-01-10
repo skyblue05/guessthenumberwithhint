@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number 2</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="container">
+
+        <div class="userInput">
+            <label for="number">
+                Guess the Number: <input type="number" placeholder="Add the Number" id="userData">
+            </label><br>
+            <button onclick="get()">Submit</button>
+            <p id="errorText">Submit ☝️ </p>
+            <button onclick="hint()" id="hint">Hint</button>
+            <p id="getHint"> Click Here 👆 to Get Hint</p>
+           
+
+            <button onclick="captureAndShare()">Capture and Share</button>
+            <button onclick="shareOnWhatsApp()">Share on WhatsApp</button>
+        </div>
+
+    </div>
+
+    <script src="/assets/js/script.js"></script>
+    <script>
+        function captureAndShare() {
+            // Get the element to capture (resultSection in this case)
+            const elementToCapture = document.getElementById('resultSection');
+
+            // Use HTML2Canvas to capture the screenshot
+            html2canvas(elementToCapture).then(canvas => {
+                // Convert the canvas to a data URL
+                const imageDataUrl = canvas.toDataURL();
+
+                // Create an anchor element with a link to the data URL
+                const downloadLink = document.createElement('a');
+                downloadLink.href = imageDataUrl;
+                downloadLink.download = 'result_screenshot.png';
+
+                // Append the link to the document
+                document.body.appendChild(downloadLink);
+
+                // Trigger a click on the link to prompt the user to save or share the screenshot
+                downloadLink.click();
+
+                // Remove the link from the document
+                document.body.removeChild(downloadLink);
+            });
+        }
+
+        function shareOnWhatsApp() {
+            // Get the element to capture (resultSection in this case)
+            const elementToCapture = document.getElementById('resultSection');
+
+            // Use HTML2Canvas to capture the screenshot
+            html2canvas(elementToCapture).then(canvas => {
+                // Convert the canvas to a data URL
+                const imageDataUrl = canvas.toDataURL();
+
+                // Open WhatsApp Web with the pre-filled message and image
+                window.open(`https://wa.me/?text=Check%20out%20my%20result:%20Your%20Result%20-%20https://your-website.com%0A%0A&media=${imageDataUrl}`, '_blank');
+            });
+        }
+    </script>
+</body>
+</html>
